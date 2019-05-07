@@ -1,0 +1,141 @@
+/*tou*/
+header{
+	background: white;
+}
+.hengheng{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: -999;
+	background: url(../img/page_about_two_bj.jpg)no-repeat;
+	background-size:100% 100% ;
+}
+.ul1>li>a{
+	    		color: black;
+	}
+	
+	@media (max-width: 1000px){
+	.myul{
+        display: none;
+    }
+    
+}
+@media (max-width: 768px) {
+    .myul{
+        float: right;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        font-size: 14px;
+        margin-left: 6px;
+      }
+}
+ 
+.tu1>div{
+		overflow: hidden;
+	}
+	
+   .iibian>span:hover{
+   	color: orangered;
+   }
+   .ul1>li>a:hover{
+   	color: orangered;
+   }
+    .qq>a{
+   	text-decoration: none;
+   	color: gray;
+   }
+   .qq>a:hover{
+   	color: orangered;
+   }
+  
+   .qiye{
+   	width: 120px;
+   	list-style: none;
+   	position: absolute;
+   	z-index: 2;
+   	background: #e38925;
+   	display: none;
+   	padding-left: 0px;
+   }
+   .qiye>li>a{
+   	text-decoration: none;
+   	color: white;
+   	text-align: center;
+   }
+   .qiye>li:hover{
+   	background-color: #080808;
+   	background: rgba(0,0,0,0.2);
+   }
+   .ul1>li:hover>.qiye{
+   	display: block;
+   }
+ .chacha{
+ 	display: none;
+ }
+  .row{
+ 	margin-left: 0px;
+ 	margin-right: 0px;
+ }
+/*以上为头部 一下身体*/
+.hongkuang{
+	width: 100%;
+	height: 150px;
+	background: rgb(148,076,064);
+	line-height: 150px;
+}
+.p1{
+	color: white;
+	font-size: 35px;
+}
+.p2{
+	color: gray;
+}
+.diqiu{
+	width: 100%;
+	height: 374px;
+	/*border: 1px solid red;*/
+	background: white;
+}
+.jiujiu{
+	width: 100%;
+	/*border: 1px solid red;*/
+	color: white;
+	
+	/*background: white;*/
+}
+.jj>li{
+	list-style: none;
+	float: left;
+}
+.dizhi{
+	width: 100%;
+	background: white;
+}
+.huihui{
+	width: 100%;
+	background: rgb(232,232,232);
+}
+/*底部*/
+footer{
+	background: white;
+}
+.gou>li>a{
+	text-decoration: none;
+	color: #686868;
+	font-size: 12px;
+}
+.gou>li:hover>a{
+	color: #E38925;
+}
+#er{
+	display: none;
+}
+/*返回顶部*/
+.back{
+	position: fixed;
+	left: 90%;
+    top: 80%;
+	display: none;
+	cursor: pointer;
+}

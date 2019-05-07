@@ -1,0 +1,165 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.ul1>li>a{
+	    		
+	    color: black;
+	}
+	
+	@media (max-width: 1000px){
+	.myul{
+        display: none;
+    }
+    
+}
+@media (max-width: 768px) {
+    .myul{
+        float: right;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        font-size: 14px;
+        /*margin-left: 10px;*/
+      }
+}
+ header{
+ 	background: white;
+ }
+.tu1>div{
+		overflow: hidden;
+	}
+	
+   .iibian>span:hover{
+   	color: orangered;
+   }
+   .ul1>li>a:hover{
+   	color: orangered;
+   }
+    .qq>a{
+   	text-decoration: none;
+   	color: gray;
+   }
+   .qq>a:hover{
+   	color: orangered;
+   }
+  
+   .qiye{
+   	width: 120px;
+   	list-style: none;
+   	position: absolute;
+   	z-index: 2;
+   	background: #e38925;
+   	display: none;
+   	padding-left: 0px;
+   }
+   .qiye>li>a{
+   	text-decoration: none;
+   	color: white;
+   	text-align: center;
+   }
+   .qiye>li:hover{
+   	background-color: #080808;
+   	background: rgba(0,0,0,0.2);
+   }
+   .ul1>li:hover>.qiye{
+   	display: block;
+   }
+ .chacha{
+ 	display: none;
+ }
+ #a>.row{
+ 	margin-left: 0px;
+ 	margin-right: 0px;
+ }
+ /*以上头*/
+.hekuang{
+	width: 100%;
+	height: 150px;
+	background: rgb(165,113,074);
+	line-height: 150px;
+}
+.haha{
+	background: white;
+	height: 1200px;
+}
+.p1{
+	color: white;
+	font-size: 35px;
+}
+.p2{
+	color: gray;
+}
+.tutu>div{
+	overflow: hidden;
+}
+.tutu>div>img{
+	width: 100%;
+}
+.tutu1>div{
+	overflow: hidden;
+}
+.tutu1>div>img{
+	width:100%;
+}
+.tutu1>div>.yi{
+	
+	width:100%;
+	height: 300px;
+}
+.biejing{
+	width: 100%;
+	height: 90%;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	z-index: -999;
+}
+.biejing>img{
+	width: 100%;
+	height: 100%;
+}
+.kong{
+	width: 100%;
+	height: 400px;
+	
+}
+.lan{
+	width: 100%;
+	height: 620px;
+	background: #EEF2F5;
+}
+.haj{
+	overflow: hidden;
+}
+
+.haj>div>img{
+	width: 95%;
+}
+/*底部*/
+footer{
+	background: white;
+}
+.gou>li>a{
+	text-decoration: none;
+	color: #686868;
+	font-size: 12px;
+}
+.gou>li:hover>a{
+	color: #E38925;
+}
+#er{
+	display: none;
+}
+/*返回顶部*/
+.back{
+	position: fixed;
+	left: 90%;
+    top: 80%;
+	display: none;
+	cursor: pointer;
+}
+ #a>.row{
+ 	margin-left: 0px;
+ 	margin-right: 0px;
+ }

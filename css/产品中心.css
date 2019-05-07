@@ -1,0 +1,137 @@
+.ul1>li>a{
+	    		color: black;
+	}
+	
+	@media (max-width: 1000px){
+	.myul{
+        display: none;
+    }
+    
+}
+@media (max-width: 768px) {
+    .myul{
+        float: right;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        font-size: 14px;
+        margin-left: 6px;
+      }
+}
+ 
+.tu1>div{
+		overflow: hidden;
+	}
+	
+   .iibian>span:hover{
+   	color: orangered;
+   }
+   .ul1>li>a:hover{
+   	color: orangered;
+   }
+    .qq>a{
+   	text-decoration: none;
+   	color: gray;
+   }
+   .qq>a:hover{
+   	color: orangered;
+   }
+  
+   .qiye{
+   	width: 120px;
+   	list-style: none;
+   	position: absolute;
+   	z-index: 2;
+   	background: #e38925;
+   	display: none;
+   	padding-left: 0px;
+   }
+   .qiye>li>a{
+   	text-decoration: none;
+   	color: white;
+   	text-align: center;
+   }
+   .qiye>li:hover{
+   	background-color: #080808;
+   	background: rgba(0,0,0,0.2);
+   }
+   .ul1>li:hover>.qiye{
+   	display: block;
+   }
+ .chacha{
+ 	display: none;
+ }
+  .row{
+ 	margin-left: 0px;
+ 	margin-right: 0px;
+ }
+ /*以上头*/
+/*篮筐*/
+.lankuang{
+	width: 100%;
+	height: 150px;
+	background: rgb(119,145,160);
+	line-height: 150px;
+}
+.p1{
+	color: white;
+	font-size: 35px;
+}
+.p2{
+	color: gray;
+}
+.chouchou>li{
+	list-style: none;
+	background: rgb(235,235,235);
+	margin-top: 2px;
+	margin-left: -54px;
+	padding: 6px;
+	color: #E48823;
+}
+.chouchou>li>.chuanglian{
+	display: inline-block;
+	padding-left: 30%;
+	color: black;
+}
+.chouchou>li:hover>.chuanglian{
+	color:#E48823 ;
+}
+.chou1{
+	margin-left: 30px;
+}
+.xiaohui{
+	background: rgb(235,235,235);
+	
+}
+.ee{
+	width: 100%;
+	height: 100%;
+	background: rgba(34,76,226,0.49);
+	padding: 20px;
+}
+.ee>.e1{
+	width: 75%;
+	padding: 10px;
+	border: 2px solid white;
+}
+
+/*底部*/
+.gou>li>a{
+	text-decoration: none;
+	color: #686868;
+	font-size: 12px;
+}
+.gou>li:hover>a{
+	color: #E38925;
+}
+#er{
+	display: none;
+}
+/*返回顶部*/
+.back{
+	position: fixed;
+	left: 90%;
+    top: 80%;
+	display: none;
+	cursor: pointer;
+}
