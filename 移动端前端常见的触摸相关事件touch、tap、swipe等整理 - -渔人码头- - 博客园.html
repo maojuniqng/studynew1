@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cnblogs.com/imwtr/p/5882166.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+<title>移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园</title>
+<meta property="og:description" content="前端的很多事件在PC端和浏览器端可公用，但有些事件却只在移动端产生，如触摸相关的事件 本文整理了移动端常见的一些事件，包括原生支持的click、touch、tap、swipe事件，也有定义型的gest">
+<link type="text/css" rel="stylesheet" href="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/bundle-LessIsMore.css">
+<link type="text/css" rel="stylesheet" href="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/203406.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/bundle-LessIsMore-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/imwtr/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/imwtr/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/imwtr/wlwmanifest.xml">
+<script src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/f.txt"></script><script src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/amp4ads-host-v0.js.下载"></script><script src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/pubads_impl_rendering_277.js.下载"></script><script async="" src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/encoder.js.下载"></script><script src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+<script type="text/javascript">var currentBlogApp = 'imwtr', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+<link rel="preload" href="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/f(1).txt" as="script"><script type="text/javascript" src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/f(1).txt"></script><script src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/pubads_impl_277.js.下载" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-31/html/container.html"></head>
+<body>
+<a name="top"></a>
+<!--PageBeginHtml Block Begin-->
+<link href="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/cnblogs.css" rel="stylesheet">
+<style type="text/css">
+body {
+    background: #c3c7c0 no-repeat top center;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+input[type="button"].btn_my_zzk {
+  width: 60px;
+}
+
+#home {
+    overflow: auto;
+    margin: 65px auto 50px auto !important;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 10px -4px #4e4e4e;
+}
+#blogTitle .title {
+    position: relative;
+    background: none;
+}
+#navigator {overflow:hidden;}
+.portrait {
+    display: block;
+    position: absolute;
+    left: 21px;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    overflow: hidden;
+    background: white url('http://images2015.cnblogs.com/blog/688270/201702/688270-20170226233600023-1167336789.jpg') no-repeat left center;
+    background-size: contain;
+   transition: all 0.8s;
+   -moz-transition: all 0.8s; /* Firefox 4 */
+   -webkit-transition: all 0.8s; /* Safari 和 Chrome */
+   -o-transition: all 0.8s;
+}
+
+.headermaintitle:hover .portrait {
+   -moz-transform:scale(1.2,1.2);
+   -webkit-transform:scale(1.2,1.2);
+   -o-transform:scale(1.2,1.2);
+   transform:scale(1.2,1.2);
+}
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #55895B;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #55895B;
+}
+
+::selection {
+    color: white;
+    background: #018ee8;
+}
+#topics a:hover {
+    padding: 1px 3px 1px 3px;;
+    text-decoration: none;
+    color: #018ee8;
+    border-radius: none;
+    background-color: transparent;
+}
+
+.postTitle {
+    padding-left: 0;
+    background: none;
+}
+
+.subtitle {
+    padding-left: 0;
+}
+
+#blogTitle {
+   padding-bottom: 0;
+}
+
+#nav_q,#nav_ing,#nav_newpost {
+   display:none !important;
+}
+
+#sideBar {
+    border-top-width: 1px !important;
+}
+
+#navigator {
+    margin-bottom: 0;
+}
+
+#sideBarMain {
+    margin: 0;
+    padding-right: 20px;
+    padding-left: 5px;
+}
+
+.catListTitle {
+    border-top-color: #CECECE;
+    border-right-color: #CECECE;
+    border-bottom-color: #CECECE;
+}
+
+#home {
+   margin: 150px auto 50px auto;
+   //width: 80%;
+}
+
+#green_channel {
+    width: auto;
+}
+
+#tbCommentBody {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+</style>
+<!--PageBeginHtml Block End-->
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/imwtr/"></a><a href="https://github.com/imwtr" target="_blank"><img style="position: absolute; top: -45px; left: -45px; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a><span class="portrait"></span>渔人码头</div>
+<div class="subtitle">非淡泊无以明志，非宁静无以致远</div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/imwtr/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/-%E6%B8%94%E4%BA%BA%E7%A0%81%E5%A4%B4-">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/imwtr/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/imwtr/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-240&nbsp;
+文章-5&nbsp;
+评论-377&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/imwtr/p/5882166.html">移动端前端常见的触摸相关事件touch、tap、swipe等整理</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p>前端的很多事件在PC端和浏览器端可公用，但有些事件却只在移动端产生，如触摸相关的事件</p>
+<p>本文整理了移动端常见的一些事件，包括原生支持的click、touch、tap、swipe事件，也有定义型的gesture手势事件（目前只是一个概念，使用的时候需封装模拟）</p>
+<p>使用到的是移动端的Chrome浏览器，本文只对该浏览器进行调试，其他浏览器暂未考虑到</p>
+<p>&nbsp;</p>
+<p><span style="color: #339966; font-size: 18px;"><strong>一、事件定义及分类</strong></span></p>
+<p><span style="font-size: 16px;"><strong>1. click事件</strong></span></p>
+<p>单击事件，类似于PC端的click，但在移动端中，连续click的触发有200ms ~ 300ms的延迟</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;"><strong>2. touch类事件</strong></span></p>
+<p>触摸事件，有touchstart touchmove touchend touchcancel 四种之分</p>
+<p>touchstart：手指触摸到屏幕会触发</p>
+<p>touchmove：当手指在屏幕上移动时，会触发</p>
+<p>touchend：当手指离开屏幕时，会触发</p>
+<p>touchcancel：可由系统进行的触发，比如手指触摸屏幕的时候，突然alert了一下，或者系统中其他打断了touch的行为，则可以触发该事件</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;"><strong>3. tap类事件</strong></span></p>
+<p>触碰事件，我目前还不知道它和touch的区别，一般用于代替click事件，有tap longTap singleTap doubleTap四种之分</p>
+<p>tap: 手指碰一下屏幕会触发</p>
+<p>longTap: 手指长按屏幕会触发</p>
+<p>singleTap:&nbsp;手指碰一下屏幕会触发</p>
+<p>doubleTap:&nbsp;手指双击屏幕会触发</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;"><strong>4. swipe类事件</strong></span></p>
+<p>滑动事件，有swipe&nbsp;swipeLeft&nbsp;swipeRight&nbsp;swipeUp&nbsp;swipeDown 五种之分</p>
+<p>swipe：手指在屏幕上滑动时会触发</p>
+<p>swipeLeft：手指在屏幕上向左滑动时会触发</p>
+<p>swipeRight：手指在屏幕上向右滑动时会触发</p>
+<p>swipeUp：手指在屏幕上向上滑动时会触发</p>
+<p>swipeDown：手指在屏幕上向下滑动时会触发</p>
+<p>&nbsp;</p>
+<p><span style="color: #339966; font-size: 18px;"><strong>二、事件的触发</strong></span></p>
+<p>页面结构：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">style </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/css"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 2</span> <span style="background-color: #f5f5f5; color: #800000;">        #test </span><span style="background-color: #f5f5f5; color: #000000;">{</span>
+<span style="color: #008080;"> 3</span> <span style="background-color: #f5f5f5; color: #ff0000;">            overflow</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> hidden</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;"> 4</span> <span style="background-color: #f5f5f5; color: #ff0000;">            margin</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> 50px auto</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;"> 5</span> <span style="background-color: #f5f5f5; color: #ff0000;">            width</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> 300px</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;"> 6</span> <span style="background-color: #f5f5f5; color: #ff0000;">            height</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> 300px</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;"> 7</span> <span style="background-color: #f5f5f5; color: #ff0000;">            border</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> 1px solid #ccc</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;"> 8</span>         <span style="background-color: #f5f5f5; color: #000000;">}</span>
+<span style="color: #008080;"> 9</span> <span style="background-color: #f5f5f5; color: #800000;">        .one,
+</span><span style="color: #008080;">10</span> <span style="background-color: #f5f5f5; color: #800000;">        .two </span><span style="background-color: #f5f5f5; color: #000000;">{</span>
+<span style="color: #008080;">11</span> <span style="background-color: #f5f5f5; color: #ff0000;">            float</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> left</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;">12</span> <span style="background-color: #f5f5f5; color: #ff0000;">            margin</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> 10px</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;">13</span> <span style="background-color: #f5f5f5; color: #ff0000;">            width</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> 100px</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;">14</span> <span style="background-color: #f5f5f5; color: #ff0000;">            height</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> 100px</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;">15</span> <span style="background-color: #f5f5f5; color: #ff0000;">            text-align</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> center</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;">16</span> <span style="background-color: #f5f5f5; color: #ff0000;">            line-height</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> 100px</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;">17</span> <span style="background-color: #f5f5f5; color: #ff0000;">            font-size</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> 32px</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;">18</span>         <span style="background-color: #f5f5f5; color: #000000;">}</span>
+<span style="color: #008080;">19</span> <span style="background-color: #f5f5f5; color: #800000;">        .one </span><span style="background-color: #f5f5f5; color: #000000;">{</span>
+<span style="color: #008080;">20</span> <span style="background-color: #f5f5f5; color: #ff0000;">            background-color</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> #ccc</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;">21</span>         <span style="background-color: #f5f5f5; color: #000000;">}</span>
+<span style="color: #008080;">22</span> <span style="background-color: #f5f5f5; color: #800000;">        .two </span><span style="background-color: #f5f5f5; color: #000000;">{</span>
+<span style="color: #008080;">23</span> <span style="background-color: #f5f5f5; color: #ff0000;">            background-color</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> #999</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+<span style="color: #008080;">24</span>         <span style="background-color: #f5f5f5; color: #000000;">}</span>
+<span style="color: #008080;">25</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">style</span><span style="color: #0000ff;">&gt;</span>    
+<span style="color: #008080;">26</span> 
+<span style="color: #008080;">27</span> 
+<span style="color: #008080;">28</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="test"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">29</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="one"</span><span style="color: #0000ff;">&gt;</span>one<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">30</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="two"</span><span style="color: #0000ff;">&gt;</span>two<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">31</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><strong><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918153033977-1672827073.png" alt=""></strong></p>
+<p><span style="font-size: 16px;"><strong>1. 原生脚本监听</strong></span></p>
+<p>　<strong>1)&nbsp;查看事件的触发及顺序</strong></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1 </span><span style="color: #0000ff;">var</span> test = document.getElementById('test'<span style="color: #000000;">);
+</span><span style="color: #008080;"> 2</span> <span style="color: #0000ff;">var</span> one = document.querySelector('.one'<span style="color: #000000;">);
+</span><span style="color: #008080;"> 3</span> <span style="color: #0000ff;">var</span> two = document.querySelector('.two'<span style="color: #000000;">);
+</span><span style="color: #008080;"> 4</span> 
+<span style="color: #008080;"> 5</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> addEvent(elem, type, showAll) {
+</span><span style="color: #008080;"> 6</span>     type = type.split(' '<span style="color: #000000;">);
+</span><span style="color: #008080;"> 7</span> 
+<span style="color: #008080;"> 8</span>     type.forEach(<span style="color: #0000ff;">function</span><span style="color: #000000;">(item) {
+</span><span style="color: #008080;"> 9</span>          elem.addEventListener(item, <span style="color: #0000ff;">function</span><span style="color: #000000;">(ev) {
+</span><span style="color: #008080;">10</span>               console.log(showAll ?<span style="color: #000000;"> ev : ev.type);
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">         });
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">    });
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">14</span> 
+<span style="color: #008080;">15</span> addEvent(one, 'tap click touchstart touchmove touchend touchcancel swipe swipeLeft swipeRight swipeUp swipeDown longTap singleTap doubleTap', <span style="color: #0000ff;">false</span>);</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>点一下，如图为相关事件触发的顺序，可以看到click事件在touchend之后</p>
+<p><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918153424008-1827166364.png" alt=""></p>
+<p>快速点两下，如图为相关事件触发的顺序，可以看到click事件因为延迟的原因只触发了一次</p>
+<p><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918154752643-535348718.png" alt=""></p>
+<p>长按，如图为相关事件触发的顺序</p>
+<p><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918153623392-1960452314.png" alt=""></p>
+<p>向右滑动一下，如图为相关事件触发的顺序</p>
+<p><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918153657863-780547614.png" alt=""></p>
+<p>长按的时候无意间触发了浏览器自身的复制文本功能，此时触发了touchcancel事件</p>
+<p><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918153831682-1686723650.png" alt=""></p>
+<p>&nbsp;</p>
+<p>　<strong>2)&nbsp;查看触发的事件对象</strong></p>
+<p>简单地修改，将事件监听中第三个参数置为true，输出完整的事件对象</p>
+<div class="cnblogs_code">
+<pre>addEvent(one, 'tap click touchstart touchmove touchend touchcancel swipe swipeLeft swipeRight swipeUp swipeDown longTap singleTap doubleTap', <span style="color: #0000ff;">true</span>);</pre>
+</div>
+<p><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918155443579-2116046295.png" alt=""></p>
+<p>这里重点关注这三个属性changedTouches、targetTouches、touches，第三方插件封装模拟其他事件时，常常用到这几个属性</p>
+<p>changedTouches：保存了所有引发事件的手指信息</p>
+<p>targetTouches：保存了当前所触碰屏幕的手指信息</p>
+<p>touches：保存了当前所有触碰屏幕的手指信息</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;"><strong>2. 第三方插件监听</strong></span></p>
+<p>&nbsp; <strong>1) 使用jquery</strong></p>
+<p>　　为了查看三个属性的区别，简单地只监听一个事件</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="jquery.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<div class="cnblogs_code">
+<pre>$('.one, .two, #test').on('touchstart', <span style="color: #0000ff;">function</span><span style="color: #000000;">(ev) {
+    ev.stopPropagation(); 
+    console.log(ev);
+});</span></pre>
+</div>
+<p>按下图顺序分五次触碰屏幕，发现event对象里没有那三个属性</p>
+<p><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918161927480-1830561292.png" alt=""></p>
+<p><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918162955946-1798703189.png" alt=""></p>
+<p>&nbsp;</p>
+<p>&nbsp; <strong>2) 改用zepto.js正常</strong></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="zepto.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918161956591-419681405.png" alt=""></p>
+<p>看第五次的touch</p>
+<p><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918162242650-718482494.png" alt=""></p>
+<p>看第二次的touch</p>
+<p><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918162411031-406130933.png" alt=""></p>
+<p>看第四次的touch</p>
+<p><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918162548679-157565538.png" alt=""></p>
+<p>由此可知:</p>
+<p>touches记录的是屏幕上全部的触摸对象的信息</p>
+<p>targetTouches记录的是当前DOM节点上全部的触摸对象的信息</p>
+<p>changedTouches记录着触发该次事件的信息，一般长度为1</p>
+<p>&nbsp;</p>
+<p>相应的数组对象内部为一系列坐标属性，可用来模拟其他事件如gesture手势事件等</p>
+<p><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20160918162910896-167702953.png" alt=""></p>
+<p>&nbsp;</p>
+<p><span style="color: #339966; font-size: 18px;"><strong>三、自定义手势事件gesture</strong></span></p>
+<p>手势事件只是概念型，目前还没有浏览器原生支持，按照概念可分为gesturestart gesturechange gestureend 三种事件</p>
+<p>gesturestart：当有两根或多根手指放到屏幕上的时候触发</p>
+<p>gesturechange：当有两根或多根手指在屏幕上，并且有手指移动的时候触发</p>
+<p>gestureend：当倒数第二根手指提起的时候触发，结束gesture</p>
+<p>&nbsp;</p>
+<p>按照定义，当分别将两根手指放到屏幕上的时候，会有如下顺序的事件触发：</p>
+<p>1、第一根手指放下，触发touchstart</p>
+<p>2、第二根手指放下，触发gesturestart</p>
+<p>3、触发第二根手指的touchstart</p>
+<p>4、立即触发gesturechange</p>
+<p>5、手指移动，持续触发gesturechange</p>
+<p>6、第二根手指提起，触发gestureend，以后将不会再触发gesturechange</p>
+<p>7、触发第二根手指的touchend</p>
+<p>8、触发touchstart（多根手指在屏幕上，提起一根，会刷新一次全局 touch，重新触发第一根手指的touchstart）</p>
+<p>9、提起第一根手指，触发touchend</p>
+<p>&nbsp;</p>
+<p>还有其他事件有待发觉...</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>gestureend&nbsp;</p></div><div id="MySignature" style="display: block;">[-_-]眼睛累了吧，注意劳逸结合呀[-_-]</div><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20181006233143351-198585778.png" width="250">
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="https://www.cnblogs.com/imwtr/category/883327.html" target="_blank">移动前端开发</a></div>
+<div id="EntryTag">标签: <a href="https://www.cnblogs.com/imwtr/tag/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/">移动端触摸事件</a>, <a href="https://www.cnblogs.com/imwtr/tag/touch/">touch</a>, <a href="https://www.cnblogs.com/imwtr/tag/tap/">tap</a>, <a href="https://www.cnblogs.com/imwtr/tag/swipe/">swipe</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(5882166,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;697c7ed0-2d62-e411-b908-9dcfd8948a71&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/imwtr/" target="_blank"><img src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/20170226235924.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/imwtr/">-渔人码头-</a><br>
+            <a href="http://home.cnblogs.com/u/imwtr/followees">关注 - 17</a><br>
+            <a href="http://home.cnblogs.com/u/imwtr/followers">粉丝 - 388</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;697c7ed0-2d62-e411-b908-9dcfd8948a71&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(5882166,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">4</span>
+    </div>
+    <div class="buryit" onclick="votePost(5882166,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/imwtr/p/5881039.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/imwtr/p/5881039.html" title="发布于2016-09-18 11:46">移动前端页面与Chrome的远程真机调试</a><br><a href="https://www.cnblogs.com/imwtr/p/5884484.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/imwtr/p/5884484.html" title="发布于2016-09-19 11:22">移动端手势库Hammer.js学习</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2016-09-18 16:45</span> <a href="https://www.cnblogs.com/imwtr/">-渔人码头-</a> 阅读(<span id="post_view_count">38764</span>) 评论(<span id="post_comment_count">3</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=5882166" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/imwtr/p/5882166.html#" onclick="AddToWz(5882166);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=203406,cb_entryId=5882166,cb_blogApp=currentBlogApp,cb_blogUserGuid='697c7ed0-2d62-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2016/9/18 16:45:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<div class="feedback_area_title">评论列表</div>
+<div class="feedbackNoItems"></div>
+	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/imwtr/p/5882166.html#3516165" class="layer">#1楼</a><a name="3516165" id="comment_anchor_3516165"></a>  <span class="comment_date">2016-09-21 15:42</span> <a id="a_comment_author_3516165" href="http://home.cnblogs.com/u/1030377/" target="_blank">Mr--Gao</a> <a href="http://msg.cnblogs.com/send/Mr--Gao" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3516165" class="blog_comment_body">我用的zepto.js为什么touches的length还是一直是1呢</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3516165,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3516165,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/imwtr/p/5882166.html#3516384" class="layer">#2楼</a><a name="3516384" id="comment_anchor_3516384"></a>[<span class="louzhu">楼主</span>]  <span class="comment_date">2016-09-21 19:06</span> <a id="a_comment_author_3516384" href="https://www.cnblogs.com/imwtr/" target="_blank">-渔人码头-</a> <a href="http://msg.cnblogs.com/send/-%E6%B8%94%E4%BA%BA%E7%A0%81%E5%A4%B4-" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3516384" class="blog_comment_body"><a href="https://www.cnblogs.com/imwtr/p/5882166.html#3516165" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3516165);">@</a>
+Mr--Gao<br>是在真机上测试的么，zepto.js用了完整的模块了吧？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3516384,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3516384,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3516384_avatar" style="display:none;">http://pic.cnblogs.com/face/688270/20170226235924.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/imwtr/p/5882166.html#3777303" class="layer">#3楼</a><a name="3777303" id="comment_anchor_3777303"></a><span id="comment-maxId" style="display:none;">3777303</span><span id="comment-maxDate" style="display:none;">2017/9/7 9:28:37</span>  <span class="comment_date">2017-09-07 09:28</span> <a id="a_comment_author_3777303" href="https://www.cnblogs.com/dragonir/" target="_blank">Dragonir</a> <a href="http://msg.cnblogs.com/send/Dragonir" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3777303" class="blog_comment_body">昨晚三七互娱前端笔试第一题考的就是它们的区别，我没答上来，不过tap是触摸事件猜对了，我好菜啊~</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3777303,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3777303,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3777303_avatar" style="display:none;">http://pic.cnblogs.com/face/772544/20170901223450.png</span>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/imwtr/p/5882166.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/imwtr/p/5882166.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="http://clickc.admaster.com.cn/c/a113612,b3081535,c1705,i0,m101,8a1,8b3,h" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-EH&#39;)">【活动】华为云12.12会员节全场1折起 满额送Mate20</a><br><a href="http://clickc.admaster.com.cn/c/a116493,b2949399,c1705,i0,m101,8a1,8b3,h" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-会员节&#39;)">【活动】华为云会员节云服务特惠1折起</a><br><a href="https://cloud.tencent.com/developer/conf/2018-beijing?fromSource=gwzcw.1768694.1768694.1768694" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-腾讯云&#39;)">【活动】腾讯云+社区开发者大会12月15日首都北京盛大起航！</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="https://cloud.tencent.com/act/special/amd?fromSource=gwzcw.1351353.1351353.1351353" target="_blank"><img width="300" height="250" src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/24442-20181129113406214-695115565.jpg" alt="腾讯云1129" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C1&#39;);"></a></div>
+<div id="under_post_news"></div>
+<script async="async" src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/gpt.js.下载"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<div id="cnblogs_c2" class="c_ad_block" style="">
+    <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CN7nhcKwld8CFRh0YAode9MBmQ">
+    <script>
+    if (new Date() >= new Date(2018, 9, 13)) {
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539008685004-0'); });
+    }
+    </script>
+    <div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" data-load-complete="true" src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/saved_resource.html"></iframe></div></div>
+</div>
+<div id="under_post_kb"></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/imwtr/">-渔人码头-</a><br>园龄：<a href="https://home.cnblogs.com/u/imwtr/" title="入园时间：2014-11-02">4年1个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/imwtr/followers/">388</a><br>关注：<a href="https://home.cnblogs.com/u/imwtr/followees/">17</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;697c7ed0-2d62-e411-b908-9dcfd8948a71&#39;)">+加关注</a></div><script>getFollowStatus('697c7ed0-2d62-e411-b908-9dcfd8948a71')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<img style="margin-left:-35px;" src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/688270-20181006234137150-1573535946.png" width="250"><div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/11/01&#39;);return false;">&lt;</a></td><td align="center">2018年12月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2019/01/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">25</td><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalWeekendDay" align="center"><a href="https://www.cnblogs.com/imwtr/archive/2018/12/01.html"><u>1</u></a></td></tr><tr><td class="CalWeekendDay" align="center"><a href="https://www.cnblogs.com/imwtr/archive/2018/12/02.html"><u>2</u></a></td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td class="CalWeekendDay" align="center">8</td></tr><tr><td class="CalWeekendDay" align="center">9</td><td class="CalTodayDay" align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td class="CalWeekendDay" align="center">15</td></tr><tr><td class="CalWeekendDay" align="center">16</td><td align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td class="CalWeekendDay" align="center">22</td></tr><tr><td class="CalWeekendDay" align="center">23</td><td align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td class="CalWeekendDay" align="center">29</td></tr><tr><td class="CalWeekendDay" align="center">30</td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(164)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/imwtr/category/631576.html"> 汇编(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/imwtr/category/884894.html">ES6(8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="https://www.cnblogs.com/imwtr/category/626450.html">HTML/CSS(16)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="https://www.cnblogs.com/imwtr/category/626449.html">JavaScript(42)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="https://www.cnblogs.com/imwtr/category/626459.html">Linux(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="https://www.cnblogs.com/imwtr/category/626452.html">Network(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="https://www.cnblogs.com/imwtr/category/668138.html">Node.js系列(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="https://www.cnblogs.com/imwtr/category/626595.html">PHP(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="https://www.cnblogs.com/imwtr/category/940547.html">React相关(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="https://www.cnblogs.com/imwtr/category/666797.html">Web常见效果or技巧(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="https://www.cnblogs.com/imwtr/category/626448.html">Web前端(40)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="https://www.cnblogs.com/imwtr/category/626456.html">电脑使用便捷技巧(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="https://www.cnblogs.com/imwtr/category/1163137.html">前端调试的那些手段(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="https://www.cnblogs.com/imwtr/category/626453.html">数据库(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_14" href="https://www.cnblogs.com/imwtr/category/626454.html">心情(9)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_15" href="https://www.cnblogs.com/imwtr/category/883327.html">移动前端开发(4)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案<span style="font-size:11px;font-weight:normal">(240)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/imwtr/archive/2018/12.html">2018年12月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="https://www.cnblogs.com/imwtr/archive/2018/11.html">2018年11月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="https://www.cnblogs.com/imwtr/archive/2018/10.html">2018年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="https://www.cnblogs.com/imwtr/archive/2018/09.html">2018年9月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="https://www.cnblogs.com/imwtr/archive/2018/08.html">2018年8月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="https://www.cnblogs.com/imwtr/archive/2018/07.html">2018年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="https://www.cnblogs.com/imwtr/archive/2018/06.html">2018年6月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="https://www.cnblogs.com/imwtr/archive/2018/03.html">2018年3月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="https://www.cnblogs.com/imwtr/archive/2018/02.html">2018年2月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="https://www.cnblogs.com/imwtr/archive/2017/11.html">2017年11月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="https://www.cnblogs.com/imwtr/archive/2017/08.html">2017年8月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="https://www.cnblogs.com/imwtr/archive/2017/02.html">2017年2月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="https://www.cnblogs.com/imwtr/archive/2017/01.html">2017年1月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="https://www.cnblogs.com/imwtr/archive/2016/11.html">2016年11月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="https://www.cnblogs.com/imwtr/archive/2016/10.html">2016年10月 (11)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="https://www.cnblogs.com/imwtr/archive/2016/09.html">2016年9月 (15)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="https://www.cnblogs.com/imwtr/archive/2015/08.html">2015年8月 (14)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="https://www.cnblogs.com/imwtr/archive/2015/07.html">2015年7月 (14)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="https://www.cnblogs.com/imwtr/archive/2015/05.html">2015年5月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_19" href="https://www.cnblogs.com/imwtr/archive/2015/04.html">2015年4月 (21)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_20" href="https://www.cnblogs.com/imwtr/archive/2015/03.html">2015年3月 (10)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_21" href="https://www.cnblogs.com/imwtr/archive/2014/11.html">2014年11月 (112)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_scorerank" class="sidebar-block">
+<div class="catListBlogRank">
+<h3 class="catListTitle">积分与排名</h3>
+<ul>
+	<li class="liScore">
+		积分 -	230352
+	</li>
+	<li class="liRank">
+		排名 -	1228
+	</li>
+</ul>
+</div>
+
+
+</div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/imwtr/p/4441741.html">1. CSS布局 -- 圣杯布局 &amp; 双飞翼布局(40113)</a></li><li><a href="https://www.cnblogs.com/imwtr/p/5882166.html">2. 移动端前端常见的触摸相关事件touch、tap、swipe等整理(38764)</a></li><li><a href="https://www.cnblogs.com/imwtr/p/4360341.html">3. Node.js基于Express框架搭建一个简单的注册登录Web功能(24170)</a></li><li><a href="https://www.cnblogs.com/imwtr/p/5970865.html">4. JS实现简易的计算器(19126)</a></li><li><a href="https://www.cnblogs.com/imwtr/p/4685546.html">5. 2016校招内推 -- 阿里巴巴前端 -- 四面面试经历(16873)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="https://www.cnblogs.com/imwtr/p/4685546.html">1. 2016校招内推 -- 阿里巴巴前端 -- 四面面试经历(47)</a></li><li><a href="https://www.cnblogs.com/imwtr/p/5957391.html">2. 前端实现文件的断点续传(43)</a></li><li><a href="https://www.cnblogs.com/imwtr/p/9925910.html">3. 当角色转换为面试官之后(26)</a></li><li><a href="https://www.cnblogs.com/imwtr/p/4422846.html">4. 2015腾讯暑期实习生 Web前端开发 面试经历(17)</a></li><li><a href="https://www.cnblogs.com/imwtr/p/4350282.html">5. Node.js起步 -- （1）(17)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="https://www.cnblogs.com/imwtr/p/5957391.html">1. 前端实现文件的断点续传(85)</a></li><li><a href="https://www.cnblogs.com/imwtr/p/5924042.html">2. 表单多文件上传样式美化 &amp;&amp; 支持选中文件后删除相关项(19)</a></li><li><a href="https://www.cnblogs.com/imwtr/p/4441741.html">3. CSS布局 -- 圣杯布局 &amp; 双飞翼布局(17)</a></li><li><a href="https://www.cnblogs.com/imwtr/p/10048065.html">4. 【年终总结】微信前端社招有感(14)</a></li><li><a href="https://www.cnblogs.com/imwtr/p/9406922.html">5. 微信小程序 - 入门指引(14)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2018 -渔人码头-
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+<!--PageEndHtml Block Begin-->
+<div class="scrollBtn" id="scrollBtn">
+  <ul class="clearfix"><li class="sB-goTop" id="goTop" style="display: list-item;">
+      <a href="https://www.cnblogs.com/imwtr/p/5882166.html#top" title="回顶部"></a>
+    </li>
+  </ul>
+</div>
+<script language="javascript" type="text/javascript">
+  //生成目录索引列表
+  function GenerateContentList() {
+    var jquery_h3_list = $('#cnblogs_post_body h2');//如果你的章节标题不是h4,只需要将这里的h4换掉即可
+    if (jquery_h3_list.length > 0) {
+      var content = '';
+      content += '<div id="navCategory" style="background-color: #BDBDBD;padding:10px 5px;">';
+      content += '<p style="font-size:18px;margin:0;line-height:30px;"><b>阅读目录</b></p>';
+      content += '<ul>';
+      for (var i = 0; i < jquery_h3_list.length; i++) {
+        var go_to_top = '<div style="text-align: right;    text-align: right;height: 0;padding: 0;overflow: hidden;visibility: hidden;"><a name="_label' + i + '"></a></div>';
+        $(jquery_h3_list[i]).before(go_to_top);
+        var li_content = '<li><a href="#_label' + i + '">' + $(jquery_h3_list[i]).text() + '</a></li>';
+        content += li_content;
+      }
+      content += '</ul>';
+      content += '</div>';
+      if ($('#cnblogs_post_body').length != 0) {
+        $($('#cnblogs_post_body')[0]).prepend(content);
+      }
+    }
+  }
+
+
+  
+$('#calendar').before('<img style="margin-left:-35px;" src="https://img2018.cnblogs.com/blog/688270/201810/688270-20181006234137150-1573535946.png" width="250" />')
+$('#MySignature').after('<img src="https://img2018.cnblogs.com/blog/688270/201810/688270-20181006233143351-198585778.png" width="250" />')
+
+ // GenerateContentList();
+</script>
+
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/jiathis_r.js.下载" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!--PageEndHtml Block End-->
+
+
+<iframe id="google_osd_static_frame_2892637386910" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./移动端前端常见的触摸相关事件touch、tap、swipe等整理 - -渔人码头- - 博客园_files/saved_resource(1).html"></iframe></body></html>
